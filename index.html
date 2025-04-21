@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smit Prajapati | Data Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(135deg, #d0e7f3, #b6d4f0);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: rgba(30, 41, 59, 0.9);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .profile-pic {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #38bdf8;
+    }
+
+    .header-left h1 {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: #f1f5f9;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #93c5fd;
+    }
+
+    .resume-download a {
+      background-color: #38bdf8;
+      color: #1e293b;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .resume-download a:hover {
+      background-color: #0ea5e9;
+    }
+
+    .home-section {
+      text-align: center;
+      padding: 5rem 1rem 3rem;
+    }
+
+    .home-section .profile-main {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      margin-bottom: 1rem;
+    }
+
+    .home-section h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: #1e293b;
+    }
+
+    .home-section p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: #1e293b;
+    }
+
+    .home-buttons a {
+      margin: 0 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+
+    .btn-cv {
+      background-color: #fbbf24;
+      color: #1e293b;
+    }
+
+    .btn-cv:hover {
+      background-color: #f59e0b;
+    }
+
+    .btn-projects {
+      background-color: #38bdf8;
+      color: #1e293b;
+    }
+
+    .btn-projects:hover {
+      background-color: #0ea5e9;
+    }
+
+    .section {
+      padding: 4rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #1e293b;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .projects .project {
+      background: whitesmoke;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .projects .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .project img {
+      width: 280px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    }
+
+    .project img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      filter: brightness(1.1);
+    }
+
+    .project div {
+      flex: 1;
+    }
+
+    .projects .project h3 {
+      color: #38bdf8;
+      margin-bottom: 0.5rem;
+    }
+
+    .projects .project a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    .projects .project a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .projects .project {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .project img {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.contact-link {
+  font-size: 2rem;
+  color: #1e293b;
+  background-color: #e2e8f0;
+  padding: 0.6rem;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  transform: scale(1.15);
+  background-color: #0ea5e9;
+  color: white;
+}
+
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #0f172a;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-left">
+      <img src="img/profile_1.jpg" alt="Profile" class="profile-pic" />
+      <h1>Smit Prajapati</h1>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="home-section">
+    <img src="img/profile_1.jpg" alt="Smit Prajapati" class="profile-main" />
+    <h1>Smit Prajapati</h1>
+    <p>🔍 Data Analyst | 📊 Python, SQL, Excel, Power BI | 📈 Problem Solver</p>
+    <div class="home-buttons">
+      <a href="Smit_Prajapati_Data_Analyst_CV.pdf" target="_blank" class="btn-cv" download>Download CV</a>
+      <a href="#projects" class="btn-projects">View Projects</a>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+  <h2><i class="fas fa-user-circle" style="color:#0ea5e9;"></i> About</h2>
+  <p class="animated-about">
+    Hi, I'm <strong>Smit Prajapati</strong> — a data analyst with a keen eye for detail, a passion for solving complex problems, and a strong foundation in computer science. I recently completed my MSc in Advanced Computer Science at the University of Leicester, where I specialized in <strong>Big Data</strong>, <strong>Predictive Analytics</strong>, and <strong>Intelligent Service Design</strong>.
+  </p>
+  <p class="animated-about">
+    My analytical journey began with a Bachelor's degree in Computer Science & Technology from Gujarat Technological University and has since evolved through hands-on experience in both <strong>web development</strong> and <strong>data analysis</strong>. During my time at <strong>Technokrit Solution</strong>, I honed my ability to manage backend systems, optimize data workflows, and transform business needs into data-driven solutions.
+  </p>
+  <p class="animated-about">
+    I thrive at the intersection of <strong>data and decision-making</strong>. Whether it's cleaning and modeling real estate data to predict property prices or building a sentiment analysis tool for COVID-19 tweets, I bring technical expertise and business insight to every project. I’m proficient in tools like <strong>Python</strong>, <strong>SQL</strong>, <strong>Tableau</strong>, <strong>Power BI</strong>, <strong>Excel</strong>, and platforms such as <strong>AWS</strong> and <strong>Azure</strong>.
+  </p>
+  <p class="animated-about">
+    I’m also a strong advocate for impactful storytelling through <strong>data visualization</strong> and interactive dashboards. You can explore some of my work, like the <strong>Streamlit sentiment analysis app</strong> , on my <a href="https://github.com/smit2399"target="_blank">GitHub portfolio</a>.
+  </p>
+  <p class="animated-about">
+    If you're looking for someone who can turn raw data into actionable insights, let’s connect.
+  </p>
+</section>
+
+
+<section id="skills" class="section">
+  <h2><i class="fas fa-laptop-code" style="color:#0ea5e9;"></i> Skills</h2>
+  <ul class="skills-list">
+    <li><i class="fab fa-python" style="color:#3776AB;"></i> Python, <i class="fas fa-database" style="color:#f97316;"></i> SQL, C++, Java</li>
+    <li><i class="fas fa-chart-line" style="color:#22c55e;"></i> Descriptive Stats, Regression, Hypothesis Testing</li>
+    <li><i class="fas fa-robot" style="color:#6366f1;"></i> Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn</li>
+    <li><i class="fas fa-chart-pie" style="color:#f59e0b;"></i> Tableau, Power BI, Streamlit</li>
+    <li><i class="fas fa-server" style="color:#4b5563;"></i> MySQL, SQLite, Data Warehousing</li>
+    <li><i class="fab fa-microsoft" style="color:#2563eb;"></i> Excel (Pivot Tables, Power Query), Google Sheets</li>
+    <li><i class="fab fa-git-alt" style="color:#ef4444;"></i> Git, <i class="fas fa-code" style="color:#3b82f6;"></i> Jupyter, APIs, AWS, Azure</li>
+  </ul>
+</section>
+
+
+  <section id="projects" class="section projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <img src="img/sentimental analysis_2.jpg" alt="Sentiment Analysis">
+      <div>
+        <h3>Sentiment Analysis on COVID-19 Tweets</h3>
+        <p>Built a sentiment analysis model in Python to classify tweets into positive, negative, and neutral. Developed a Streamlit app to display insights and dashboards in Tableau.</p>
+        <a href="https://github.com/smit2399/Sentimental-Analysis-Model" target="_blank">View Project</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <img src="img/Real Estate Analysis_3.jpg" alt="Real Estate Prediction">
+      <div>
+        <h3>Manhattan Real Estate Predictive Analysis</h3>
+        <p>Used regression and clustering techniques on real estate data to predict prices. Cleaned and visualized data using Python and Tableau.</p>
+        <a href="https://github.com/smit2399/-Manhattan-Real-Estate-Predictive-Analysis-" target="_blank">View Project</a>
+      </div>
+    </div>
+
+    <div class="project">
+  <img src="img/product_sales_4.jpg" alt="product Sales Analysis">
+  <div>
+    <h3>Electronic Sales Analysis using Python</h3>
+    <p>Utilise Python Pandas and Python Matplotlib to analyse and answer business questions based on 12 months of sales data.</p>
+    <a href="https://github.com/smit2399/Product-Sales-Analysis-Project" target="_blank">View Project</a>
+  </div>
+</div>
+
+  </section>
+
+
+
+  <section id="contact" class="section">
+  <h2><i class="fas fa-envelope" style="color:#0ea5e9;"></i> Contact</h2>
+  <div class="contact-icons">
+    <a href="mailto:smitprajapati28@gmail.com" class="contact-link" title="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="tel:+447831398757" class="contact-link" title="Phone">
+      <i class="fas fa-phone-alt"></i>
+    </a>
+    <a href="https://linkedin.com/in/smitprajapati99" target="_blank" class="contact-link" title="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://github.com/smit2399" target="_blank" class="contact-link" title="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </div>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 Smit Prajapati. All rights reserved.</p>
+  </footer>
+</body>
+</html>
