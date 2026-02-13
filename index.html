@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Smit Prajapati - Data Analyst Portfolio. Explore projects, skills, and contact info.">
+  <title>Smit Prajapati | Data Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-darker: #060911;
+      --accent-cyan: #00d9ff;
+      --accent-purple: #b794f6;
+      --accent-pink: #ff6ec7;
+      --accent-yellow: #ffd93d;
+      --text-primary: #e8edf5;
+      --text-secondary: #9ba3b4;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated gradient background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(ellipse at 20% 20%, rgba(0, 217, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(183, 148, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(255, 110, 199, 0.1) 0%, transparent 70%);
+      z-index: -1;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    /* Header */
+    header {
+      background: rgba(10, 14, 26, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 1.5rem 5%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 1rem 5%;
+      box-shadow: 0 10px 30px rgba(0, 217, 255, 0.1);
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .profile-pic-header {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-cyan);
+      object-fit: cover;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-pic-header:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+    }
+
+    .logo-section h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: var(--text-primary);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+      color: var(--accent-cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      position: relative;
+      transition: color 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-cyan);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .profile-main {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      margin: 0 auto 2rem;
+      position: relative;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .profile-main::before {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
+      z-index: -1;
+      animation: rotate 8s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .profile-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--bg-dark);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -1px;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .hero .tagline {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      margin-bottom: 3rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      color: var(--bg-dark);
+      box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 217, 255, 0.5);
+    }
+
+    .btn-secondary {
+      background: var(--glass-bg);
+      border: 2px solid var(--glass-border);
+      color: var(--text-primary);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-cyan);
+      background: rgba(0, 217, 255, 0.1);
+      transform: translateY(-3px);
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 6rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-title i {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* About Section */
+    .about-content {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 3rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content strong {
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .about-content a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .about-content a:hover {
+      border-bottom-color: var(--accent-cyan);
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 217, 255, 0.2);
+    }
+
+    .skill-card:hover::before {
+      left: 100%;
+    }
+
+    .skill-card i {
+      font-size: 2rem;
+      margin-right: 0.5rem;
+    }
+
+    .skill-card .skill-text {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    .project-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 0;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 2rem;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0, 217, 255, 0.3);
+    }
+
+    .project-image {
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      min-height:300px;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.1);
+    }
+
+    .project-info {
+      padding: 2rem 2rem 2rem 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-info h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .project-info p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: gap 0.3s ease;
+    }
+
+    .project-link:hover {
+      gap: 0.8rem;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+
+    .contact-item {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-item i {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-10px) scale(1.1);
+      box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+      border-color: transparent;
+    }
+
+    .contact-item:hover::before {
+      opacity: 1;
+    }
+
+    .contact-item:hover i {
+      color: var(--bg-dark);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--bg-darker);
+      border-top: 1px solid var(--glass-border);
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Scroll Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .project-info {
+        padding: 2rem;
+      }
+
+      .project-image {
+        min-height: 250px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(10, 14, 26, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 6rem 2rem 2rem;
+        gap: 2rem;
+        transition: right 0.3s ease;
+        border-left: 1px solid var(--glass-border);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links a {
+        font-size: 1.2rem;
+      }
+
+      header {
+        padding: 1rem 5%;
+      }
+
+      .section {
+        padding: 4rem 5%;
+      }
+
+      .about-content {
+        padding: 2rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-darker);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink));
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="logo-section">
+      <img src="img/Profile Picture.jpeg" alt="Smit Prajapati" class="profile-pic-header" />
+      <h1>Smit Prajapati</h1>
+    </div>
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="profile-main">
+        <img src="img/Profile Picture.jpeg" alt="Smit Prajapati" />
+      </div>
+      <h1>Smit Prajapati</h1>
+      <p class="subtitle"><h3>Data Analyst | Data Scientist</h3></p>
+      <br><p class="tagline">📊 Python · SQL · Excel · Power BI · Tableau</p>
+      <div class="cta-buttons">
+        <a href="smit_resume.pdf" target="_blank" class="btn btn-primary" download>
+          <i class="fas fa-download"></i> Download CV
+        </a>
+        <a href="#projects" class="btn btn-secondary">
+          <i class="fas fa-briefcase"></i> View Projects
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section">
+    <div class="section-header">
+      <h2 class="section-title">
+        <i class="fas fa-user-circle"></i> About Me
+      </h2>
+    </div>
+    <div class="about-content fade-in">
+      <p>
+        Data professional with an MSc in Computer Science and hands-on experience transforming complex datasets into actionable business insights. Currently serving as a Data Analyst Intern at Unified Mentor, where I analyze 10,000+ records monthly, design KPI-driven dashboards, and deliver strategic reports that drive operational efficiency.
+      </p>
+      <p>
+        My expertise spans the full analytics lifecycle—from data collection and cleaning to advanced statistical modeling and stakeholder presentation. At Victoria Solutions, I improved decision-making efficiency by 35% through Python-based analysis of 30,000+ records and automated reporting workflows that reduced manual effort by 20%. Previously enhanced operational effectiveness by 15% through trend analysis and process optimization initiatives.
+      </p>
+      <p>
+        I combine technical proficiency in Python, SQL, and visualization tools (Power BI, Tableau) with strong business acumen developed across retail, logistics, and technology sectors. Whether building predictive models achieving 85% accuracy, engineering features from raw data, or translating complex analyses into clear narratives for non-technical stakeholders, I thrive on uncovering patterns that solve real-world business problems.
+      </p>
+      <p>
+        Passionate about leveraging data science and machine learning to create measurable impact. Actively seeking opportunities to contribute analytical rigor and strategic thinking to data-driven organizations.
+      </p>
+      <p>
+        If you're looking for someone who can turn raw data into actionable insights, let's connect.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="section">
+    <div class="section-header">
+      <h2 class="section-title">
+        <i class="fas fa-laptop-code"></i> Skills & Expertise
+      </h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card fade-in">
+        <div>
+          <i class="fab fa-python" style="color:#3776AB;"></i>
+          <span class="skill-text">Python, SQL</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div>
+          <i class="fas fa-chart-line" style="color:#22c55e;"></i>
+          <span class="skill-text">Descriptive Stats, Regression, Hypothesis Testing, Clustering (K-Means), Feature Engineering, Model Evaluation & Cross-Validation, Predictive Modeling, Sentiment Analysis</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div>
+          <i class="fas fa-robot" style="color:#6366f1;"></i>
+          <span class="skill-text">Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div>
+          <i class="fas fa-chart-pie" style="color:#f59e0b;"></i>
+          <span class="skill-text">Tableau, Power BI, Streamlit</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div>
+          <i class="fas fa-database" style="color:#f97316;"></i>
+          <span class="skill-text">MySQL, SQL Server, SQLite, Data Warehousing</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div>
+          <i class="fab fa-microsoft" style="color:#2563eb;"></i>
+          <span class="skill-text">Excel (Pivot Tables, VLOOKUP, Power Query), Google Sheets</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div>
+          <i class="fab fa-git-alt" style="color:#ef4444;"></i>
+          <span class="skill-text">Git, Jupyter Notebook, AWS, Azure</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="section">
+    <div class="section-header">
+      <h2 class="section-title">
+        <i class="fas fa-chart-pie"></i> Featured Projects
+      </h2>
+    </div>
+    <div class="projects-grid">
+     
+      <div class="project-card fade-in">
+        <div class="project-image">
+          <img src="img/sumsung-logistic-dashboard.jpg" alt="Sumsung Supply Chain Logistic Dashboard">
+        </div>
+        <div class="project-info">
+          <h3> Sumsung Supply Chain Logistic Dashboard</h3>
+          <h5>Tools: PowerBI</h5>
+          <p>This Power BI dashboard provides a clear view of Samsung’s supply chain performance across suppliers, inventory, shipments, and customers. It is designed to help stakeholders monitor key metrics, identify risks, and make informed operational decisions.</p>
+          <a href="https://github.com/smit2399/Sumsung-Logistic-Dashboard" target="_blank" class="project-link">
+            View Project <i class="fas fa-arrow-right"></i>
+            <a href="https://app.powerbi.com/links/1wiorOnrLK?ctid=5e25733f-f36f-4e7e-b9bf-6fc507cb6e4a&pbi_source=linkShare&bookmarkGuid=fd16127f-4934-4c33-b4f1-02d365e7fdaf" target="_blank" class="project-link">
+            Dashboard <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-image">
+          <img src="img/Churn-prediction-model.jpg" alt="Churn Prediction & Sales Forecasting">
+        </div>
+        <div class="project-info">
+          <h3> Churn Prediction & Sales Forecasting</h3>
+          <h5>Tools: Python, ML, Tableau</h5>
+          <p>This project applies advanced data science techniques to a sales dataset in order to uncover actionable insights, predict future trends, and enhance business decision-making. The analysis integrates data cleaning, statistical testing, predictive modeling, machine learning, and interactive visualizations using Tableau.</p>
+          <a href="https://github.com/smit2399/Advnaced-Sales-Data-Analysis-Python-" target="_blank" class="project-link">
+            View Project <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-image">
+          <img src="img/Customer-shopping-behavior.jpg" alt="Customer Shopping Behavior">
+        </div>
+        <div class="project-info">
+          <h3>Customer Shopping Behavior</h3>
+          <h5>Tools: Python, SQL, PowerBI</h5>
+          <p>This project demonstrates an end-to-end data analytics workflow, starting from raw data ingestion to delivering actionable business insights through dashboards and presentations. The objective is to analyze customer shopping behavior, identify trends, and support data-driven decision-making using Python, SQL, and Power BI.</p>
+          <a href="https://github.com/smit2399/Customer-Shopping-trends-Analysis-python-SQL-PowerBI" target="_blank" class="project-link">
+            View Project <i class="fas fa-arrow-right"></i>
+            <a href="https://app.powerbi.com/links/rkhRoHgEDu?ctid=5e25733f-f36f-4e7e-b9bf-6fc507cb6e4a&pbi_source=linkShare&bookmarkGuid=ab58e1b9-db30-4da3-9226-34a95861175a" target="_blank" class="project-link">
+            Dashboard <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-image">
+          <img src="img/sentimental analysis_2.jpg" alt="Sentiment Analysis Project">
+        </div>
+        <div class="project-info">
+          <h3>Sentiment Analysis on COVID-19 Tweets</h3>
+          <h5>Tools: Python, ML, SQLite, Tableau</h5>
+          <p>Built a sentiment analysis model in Python to classify tweets into positive, negative, and neutral categories. Developed an interactive Streamlit app to display insights and created comprehensive dashboards in Tableau for data visualization.</p>
+          <a href="https://github.com/smit2399/Sentimental-Analysis-Model" target="_blank" class="project-link">
+            View Project <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-image">
+          <img src="img/Real Estate Analysis_3.jpg" alt="Real Estate Analysis Project">
+        </div>
+        <div class="project-info">
+          <h3>Manhattan Real Estate Predictive Analysis</h3>
+          <h5>Tools: Python, ML</h5>
+          <p>Applied regression and clustering techniques on real estate data to predict property prices with high accuracy. Cleaned, processed, and visualized complex datasets using Python libraries and Tableau.</p>
+          <a href="https://github.com/smit2399/-Manhattan-Real-Estate-Predictive-Analysis-" target="_blank" class="project-link">
+            View Project <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-image">
+          <img src="img/product_sales_4.jpg" alt="Product Sales Analysis">
+        </div>
+        <div class="project-info">
+          <h3>Electronic Sales Analysis using Python</h3>
+          <h5>Tools: Jupyter Notebook, Python Libraries</h5>
+          <p>Utilized Python Pandas and Matplotlib to analyze 12 months of sales data and answer critical business questions. Identified trends, patterns, and insights to drive data-driven decision making.</p>
+          <a href="https://github.com/smit2399/Product-Sales-Analysis-Project" target="_blank" class="project-link">
+            View Project <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+          <div>
+            <a href="https://github.com/smit2399?tab=repositories" target="_blank" class="project-link">
+            <h2>More Projects</h2> <i class="fas fa-arrow-right"></i>
+          </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section">
+    <div class="section-header">
+      <h2 class="section-title">
+        <i class="fas fa-envelope"></i> Get In Touch
+      </h2>
+    </div>
+    <div class="contact-grid">
+      <a href="mailto:smitprajapati28@gmail.com" class="contact-item" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="tel:+91 9824995656" class="contact-item" title="Phone">
+        <i class="fas fa-phone-alt"></i>
+      </a>
+      <a href="https://linkedin.com/in/smitprajapati99" target="_blank" class="contact-item" title="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://github.com/smit2399" target="_blank" class="contact-item" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Smit Prajapati. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = menuToggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+
+    // Close menu when clicking on a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      });
+    });
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 100);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
